@@ -1,122 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-<meta charset=utf-8">
-<meta name="Author" lang="uk" content="Гаштемеленко Яваскриптик Перлович">
-<meta name="Description" content="Приклади Web – сторiнок. HTML Reference.">
-<meta name="Keywords" content="Web - сторiнка, audio video ">
-<title>Приклад. Сторінка audio та video </title>
-<script>
-function set_arec()
-{
-var by_sel=document.getElementById("issel");
-var my_a=document.getElementById("mypl");
-var my_v=document.getElementById("myVideo1");
-my_a.src ="audio/"+by_sel.value;
-my_a.play();
-my_v. pause();
+   <meta charset="utf-8">
+   <meta name="author" content="Зубко Дарина Євгенівна">
+   <meta name="description" content="Приклад веб-сторінки">
+   <meta name="keywords" content="веб-сторінка, розробка, HTML-посібник">
+   <title>About me</title>
+   <script src="link.js"></script>  
+
+
+   <style>
+      * {
+         padding: 0;
+         box-sizing: border-box;
+         font-family: sans-serif;
+         list-style: none;
+         text-decoration:none;
+
+      }
+
+      body {
+         height: 100vh;
+         background: url(https://cdn.pixabay.com/photo/2014/12/04/14/46/magnolia-trees-556718_1280.jpg) no-repeat;
+         background-size: cover;
+         background-position: center;
+      }
+
+      header {
+   position: fixed;
+   left: 0;
+   right: 0;
+   top: 0;
+   background: rgba(255, 255, 255, 0.9); 
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 8%;
+   z-index: 1;
 }
-function set_vrec()
-2
-{
-var by_sel=document.getElementById("is_v_sel");
-var my_a=document.getElementById("mypl");
-var my_v=document.getElementById("myVideo1");
-my_v.src ="video/"+by_sel.value;
-my_v.play();
-my_a. pause();
+
+      header .logo {
+         color: rgba(137, 43, 226, 0.824); 
+         font-size: 26px;
+      }
+      header nav ul li{
+         position: relative;
+         float: left;
+      
+      }
+      header nav ul li a {
+       padding: 20px;
+       color: rgba(137, 43, 226, 0.824);
+       font-size: 20px;
+       display: block;
+      }
+      header nav ul li a:hover {
+         background: #dc2ce8;
+      color: #fff;
+      }
+      
+      .main {
+         display: flex;
+         align-items:center;
+         height:40vh;
+         padding: 0 25%; 
+         color: black; 
+         font-size: 24px;
+      }   
+     .centered {
+   text-align: center;
+   margin: 20 px;
+
 }
-function checkVideo()
-{
-if(!!document.createElement('video').canPlayType)
-{
-var vidTest=document.createElement("video");
-oggTest=vidTest.canPlayType('video/ogg; codecs="theora, vorbis"');
-if (!oggTest)
-{
-h264Test=vidTest.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
-if (!h264Test)
-{
-document.getElementById("checkVideoResult").innerHTML="Вибачте. Не підтримує."
+img {
+  border-radius: 50%;
+  width: 230px; 
+  height: 230px; 
+  object-fit: cover;
+  object-position: top;
+  margin-top: 20px; 
+  margin-left: 15px; 
+  cursor: pointer; 
+
 }
-else
-{
-if (h264Test=="probably")
-{
-document.getElementById("checkVideoResult").innerHTML="Так!";
+
+img:hover {
+  transform: scale(1.3); 
+  cursor: pointer; 
 }
-else
-{
-document.getElementById("checkVideoResult").innerHTML="Частково підтримує.";
-}
-}
-}
-else
-{
-if (oggTest=="probably")
-{
-document.getElementById("checkVideoResult").innerHTML="Так!";
-}
-else
-{
-document.getElementById("checkVideoResult").innerHTML="Частково підтримує.";
-}
-}
-}
-else
-{
-document.getElementById("checkVideoResult").innerHTML="Вибачте. Не підтримує."
-}
-}
-</script>
+
+
+
+        input {
+         text-align: center;
+
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+         text-align: center;
+
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        p {
+         text-align: center;
+
+            font-size: 18px;
+            margin-top: 20px;
+         
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+
+   </style>
 </head>
-<body >
-<h2> Лабораторна робота №11. Приклад. </h2>
+<body  >
+   <header>
+      <a href="#" class="logo">Lab2</a>
+
+      <nav>
+         <ul>
+            <li><a href="https://zubkodaryna.github.io/test/">About me</a></li>
+            <li><a href="https://zubkodaryna.github.io/test/Second2.html#">Pharmacy's history</a></li>
+            <li><a href="https://zubkodaryna.github.io/test/Third.html#">Pharmacy</a></li>
+         </ul>
+      </nav>
+   </header>
 <br>
-<div>
-<h3> Приклад. Бібліотека audio</h3>
-<form >
-<select id = "issel" onchange ="set_arec()">
-<option value="UUT.mp3" selected> Юлія Бодай. Вітер </option>
-<option value="CCK.mp3"> Скрябін; Сам собі країна CCK </option>
-<option value="Hay.mp3"> Скрябін; Хай буде так як хочеш ти </option>
-<option value="MV.mp3"> Фіолет. Мій вибір </option>
-<select>
+   <h1 class="centered" style="margin-top: 70px;">Hi. I'm Daryna Zubko</h1>
+   <h2 class="centered" style="margin-top: 20px;">I'm a student and now I am nineteen</h2>
+   
+<img src="https://images.unsplash.com/photo-1565711561500-49678a10a63f?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"ondblclick="imageDoubleClick(this)"/> 
+<img src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&q=80&w=1965&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"onclick="imageClick('Image 2')"/> 
+<img src="https://cdn.pixabay.com/photo/2023/07/31/13/42/anime-art-8161031_1280.png"onmouseup="mouseUp(event)"/> 
+<img src="https://cdn.pixabay.com/photo/2023/08/18/16/37/ai-generated-8198911_640.png"onmouseout="mouseOut(this)"/> 
+<img src="https://cdn.pixabay.com/photo/2014/08/16/18/17/book-419589_640.jpg" onclick="imageClick('Image 5')"/> 
+<img src="https://cdn.pixabay.com/photo/2015/09/23/22/56/dog-954520_640.jpg"ondblclick="imageDoubleClick(this)"/> 
+<br>
+<form id="myForm">
+   <!-- Додайте ваші інші елементи форми, які вам потрібні -->
+   
+   <textarea id="outputTextarea" rows="5" cols="30" placeholder="Output will be displayed here"></textarea>
+   
+   <button type="button" onclick="runTask()">Run Task</button>
+
 </form>
 <br>
-<audio id = "mypl" controls autoplay loop >
-no audio
-3
-<source src="audio/UUT.mp3" type ="audio/mp3" >
-</audio>
-</div>
-<hr>
-<div>
-<h3> Приклад. Бібліотека video</h3>
-<br>
-<form >
-<select id = "is_v_sel" onchange ="set_vrec()">
-<option value="test.mp4" selected> Mister Bean </option>
-<option value="test3.mp4"> Hary </option>
-<option value="test2.mp4"> What do yuo see </option>
-<option value="test4.mp4"> EE - I - EE - I-O </option>
-<option value="v_shkolu.webm"> Чебурашка </option>
-<select>
-</form>
-<br>
-<br>
-<video id = myVideo1 tabindex="0" controls poster = "video/test.jpg" >
-<source src="video/test.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-<source src="video/test.ogv" type='video/ogg; codecs="theora, vorbis"'>
-<source src="video/test.webm" type='video/webm; codecs="vp8, vorbis"'> Тег video не підтримується вашим браузером. <a href="video/test.mp4">Скачайте видео</a>.
-</video>
-<br>
-</div>
-<br>
-<div>
-<h3> Приклад. Перевірка підтримки відео</h3>
-<div id="checkVideoResult">
-<button onclick="checkVideo()">Перевірка</button>
-</div>
-</div>
+
+    <form id="searchForm">
+        <label for="inputText">Введіть текст:</label>
+        <input type="text" id="inputText" placeholder="підрахунок цифр" />
+        <button type="button" onclick="searchInfo()">Пошук інформації</button>
+    </form>
+
+    <p id="result"></p>
+   
+
+  
 </body>
+</html>
