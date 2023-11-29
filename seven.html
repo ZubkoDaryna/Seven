@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8">
+<meta name="Author" lang="uk" content="Гаштемеленко Яваскриптик Перлович">
+<meta name="Description" content="Приклади Web – сторiнок. HTML Reference.">
+<meta name="Keywords" content="Web - сторiнка, audio video ">
+<title>Приклад. Сторінка audio та video </title>
+<script>
+function set_arec()
+{
+var by_sel=document.getElementById("issel");
+var my_a=document.getElementById("mypl");
+var my_v=document.getElementById("myVideo1");
+my_a.src ="audio/"+by_sel.value;
+my_a.play();
+my_v. pause();
+}
+function set_vrec()
+2
+{
+var by_sel=document.getElementById("is_v_sel");
+var my_a=document.getElementById("mypl");
+var my_v=document.getElementById("myVideo1");
+my_v.src ="video/"+by_sel.value;
+my_v.play();
+my_a. pause();
+}
+function checkVideo()
+{
+if(!!document.createElement('video').canPlayType)
+{
+var vidTest=document.createElement("video");
+oggTest=vidTest.canPlayType('video/ogg; codecs="theora, vorbis"');
+if (!oggTest)
+{
+h264Test=vidTest.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+if (!h264Test)
+{
+document.getElementById("checkVideoResult").innerHTML="Вибачте. Не підтримує."
+}
+else
+{
+if (h264Test=="probably")
+{
+document.getElementById("checkVideoResult").innerHTML="Так!";
+}
+else
+{
+document.getElementById("checkVideoResult").innerHTML="Частково підтримує.";
+}
+}
+}
+else
+{
+if (oggTest=="probably")
+{
+document.getElementById("checkVideoResult").innerHTML="Так!";
+}
+else
+{
+document.getElementById("checkVideoResult").innerHTML="Частково підтримує.";
+}
+}
+}
+else
+{
+document.getElementById("checkVideoResult").innerHTML="Вибачте. Не підтримує."
+}
+}
+</script>
+</head>
+<body >
+<h2> Лабораторна робота №11. Приклад. </h2>
+<br>
+<div>
+<h3> Приклад. Бібліотека audio</h3>
+<form >
+<select id = "issel" onchange ="set_arec()">
+<option value="UUT.mp3" selected> Юлія Бодай. Вітер </option>
+<option value="CCK.mp3"> Скрябін; Сам собі країна CCK </option>
+<option value="Hay.mp3"> Скрябін; Хай буде так як хочеш ти </option>
+<option value="MV.mp3"> Фіолет. Мій вибір </option>
+<select>
+</form>
+<br>
+<audio id = "mypl" controls autoplay loop >
+no audio
+3
+<source src="audio/UUT.mp3" type ="audio/mp3" >
+</audio>
+</div>
+<hr>
+<div>
+<h3> Приклад. Бібліотека video</h3>
+<br>
+<form >
+<select id = "is_v_sel" onchange ="set_vrec()">
+<option value="test.mp4" selected> Mister Bean </option>
+<option value="test3.mp4"> Hary </option>
+<option value="test2.mp4"> What do yuo see </option>
+<option value="test4.mp4"> EE - I - EE - I-O </option>
+<option value="v_shkolu.webm"> Чебурашка </option>
+<select>
+</form>
+<br>
+<br>
+<video id = myVideo1 tabindex="0" controls poster = "video/test.jpg" >
+<source src="video/test.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+<source src="video/test.ogv" type='video/ogg; codecs="theora, vorbis"'>
+<source src="video/test.webm" type='video/webm; codecs="vp8, vorbis"'> Тег video не підтримується вашим браузером. <a href="video/test.mp4">Скачайте видео</a>.
+</video>
+<br>
+</div>
+<br>
+<div>
+<h3> Приклад. Перевірка підтримки відео</h3>
+<div id="checkVideoResult">
+<button onclick="checkVideo()">Перевірка</button>
+</div>
+</div>
+</body>
